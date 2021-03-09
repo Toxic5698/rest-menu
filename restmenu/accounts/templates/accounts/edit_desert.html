@@ -1,0 +1,20 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+<div class="col-md-6">
+    <div class="card card-body">
+        <h4>Uprava ulozeneho desertu</h4>
+        <form action="" method="POST">
+        {% csrf_token%}
+
+            {{ formDesert.as_p }}
+            <hr>
+            <input class="btn btn-primary btn-block" type="submit" name="AddDesert">
+            <hr>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

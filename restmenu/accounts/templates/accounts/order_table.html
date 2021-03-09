@@ -1,0 +1,9 @@
+{% load render_table from django_tables2 %}
+
+<div class="card card-body">
+  {% if table %}
+      {% render_table table %}
+  {% else %}
+      <p>No table</p>
+  {% endif %}
+</div>

@@ -1,0 +1,210 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h4>Úprava menu</h4>
+            <form action="" method="POST">
+            {% csrf_token%}
+                <div class="form-floating">
+                    {{formMenu.day}}
+                    <label>Day</label>
+                </div>
+                <div class="form-floating">
+                    {{formMenu.info}}
+                    <label>Info</label>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.supper1 }}
+                    <label>Supper1</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.supper1_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.supper2 }}
+                    <label>Supper2</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.supper2_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.meal1 }}
+                    <label>Meal1</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.meal1_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.meal2 }}
+                    <label>Meal2</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.meal2_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.meal3 }}
+                    <label>Meal3</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.meal3_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="form-floating w-75">
+                    {{ formMenu.meal4 }}
+                    <label>Meal4</label>
+                  </div>
+                  <div class="form-floating w-25">
+                    {{ formMenu.meal4_portions }}
+                    <label>Počet porcí</label>
+                  </div>
+                </div>
+                <div class="form-floating">
+                    {{formMenu.desert}}
+                    <label>Desert</label>
+                </div>
+
+
+
+
+                <hr>
+                <input class="btn btn-primary btn-block" type="submit" name="EditMenu">
+                <hr>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h4>Přidání nové polévky</h4>
+            <form action="" method="POST">
+            {% csrf_token%}
+
+                {{ formSupper.as_p }}
+                <hr>
+                <input class="btn btn-primary btn-block" type="submit" name="AddSupper">
+                <hr>
+            </form>
+        </div>
+
+        <div class="card card-body">
+            <h4>Přidání nového hlavního jídla</h4>
+            <form action="" method="POST">
+            {% csrf_token%}
+
+                {{ formMeal.as_p }}
+                <hr>
+                <input class="btn btn-primary btn-block" type="submit" name="AddMeal">
+                <hr>
+            </form>
+        </div>
+
+        <div class="card card-body">
+            <h4>Přidání nového desertu</h4>
+            <form action="" method="POST">
+            {% csrf_token%}
+
+                {{ formDesert.as_p }}
+                <hr>
+                <input class="btn btn-primary btn-block" type="submit" name="AddDesert">
+                <hr>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card card-body">
+            <h4>Polévky</h4>
+            <table class="table table-sm table-hover">
+      				<tr>
+      					<th>Název</th>
+      					<th>Alergeny</th>
+      					<th>Úprava</th>
+      				</tr>
+
+      				{% for s in supper%}
+                      <tr>
+
+                              <td>{{s.name}}</td>
+                              <td>{{s.alergens}}</td>
+                              <td><a id="supper" href="{% url 'edit_supper' s.id %}">Edit</a></td>
+                      </tr>
+              {% endfor %}
+
+      			</table>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card card-body">
+            <h4>Hlavní jídla</h4>
+            <table class="table table-sm table-hover">
+      				<tr>
+                <th>Porce</th>
+                <th>Název</th>
+      					<th>Alergeny</th>
+      					<th>Úprava</th>
+      				</tr>
+
+      				{% for m in meal %}
+                      <tr>
+
+                              <td>{{m.portion}}g</td>
+                              <td>{{m.name}}</td>
+                              <td>{{m.alergens}}</td>
+                              <td><a id="meal" href="{% url 'edit_meal' m.id %}">Edit</a></td>
+                      </tr>
+              {% endfor %}
+
+      			</table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-body">
+            <h4>Deserty</h4>
+            <table class="table table-sm table-hover">
+      				<tr>
+      					<th>Název</th>
+      					<th>Alergeny</th>
+      					<th>Úprava</th>
+      				</tr>
+
+      				{% for d in desert %}
+                      <tr>
+
+                              <td>{{d.name}}</td>
+                              <td>{{d.alergens}}</td>
+                              <td><a href="{% url 'edit_desert' d.id %}">Edit</a></td>
+                      </tr>
+              {% endfor %}
+
+      			</table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,156 @@
+
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'edit_menu' menu.id %}">Edit menu</a>
+      <hr>
+			<h5 class="text-center">{{menu.day}}</h5>
+			<div class="col-md">
+    		<div class="card card-body">
+    			<h4>Info</h4>
+    			<hr>
+            <blockquote class="blockquote">
+                 <p>{{menu.info}}</p>
+            </blockquote>
+    		</div>
+    	</div>
+
+
+			<div class="col-md">
+    		<div class="card card-body">
+    			<h4>Polévky</h4>
+    			<hr>
+
+					<figure >
+            <blockquote class="blockquote">
+                 <p>{{menu.supper1}}
+									  {% if c_p.supper1__sum >= menu.supper1_portions %}
+
+										<small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+										{% endif %}
+
+								 </p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.supper1.alergens}}
+            </figcaption>
+
+            <blockquote class="blockquote">
+                 <p>{{menu.supper2}}
+									  {% if c_p.supper2__sum >= menu.supper2_portions %}
+
+										<small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+										{% endif %}
+
+								 </p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.supper2.alergens}}
+            </figcaption>
+          </figure>
+
+    		</div>
+    	</div>
+
+
+    	<div class="col-md">
+    		<div class="card card-body">
+    			<h4>Hlavní chody</h4>
+          <hr>
+
+          <figure>
+
+            <blockquote class="blockquote">
+      			     <p>{{menu.meal1.portion}}g {{menu.meal1}}
+									  {% if c_p.meal1__sum >= menu.meal1_portions %}
+
+								    <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+								    {% endif %}
+
+							</p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.meal1.alergens}}
+            </figcaption>
+
+            <blockquote class="blockquote">
+      			     <p>{{menu.meal2.portion}}g {{menu.meal2}}
+									  {% if c_p.meal2__sum >= menu.meal2_portions %}
+
+										<small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+										{% endif %}
+
+								 </p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.meal2.alergens}}
+            </figcaption>
+
+
+            <blockquote class="blockquote">
+      			     <p>{{menu.meal3.portion}}g {{menu.meal3}}
+									 	{% if c_p.meal3__sum >= menu.meal3_portions %}
+
+								 		<small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+								 		{% endif %}
+
+							</p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.meal3.alergens}}
+            </figcaption>
+
+
+            <blockquote class="blockquote">
+      			     <p>{{menu.meal4.portion}}g {{menu.meal4}}
+									  {% if c_p.meal4__sum >= menu.meal4_portions %}
+
+								 		<small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
+
+								 		{% endif %}
+
+							</p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.meal4.alergens}}
+            </figcaption>
+
+          </figure>
+
+    		</div>
+    	</div>
+
+      <div class="col-md">
+    		<div class="card card-body">
+    			<h4>Desert</h4>
+          <hr>
+
+          <figure>
+            <blockquote class="blockquote">
+      			     <p>{{menu.desert}}</p>
+            </blockquote>
+						<figcaption class="blockquote-footer">
+              {{menu.desert.alergens}}
+            </figcaption>
+          </figure>
+
+    		</div>
+    	</div>
+
+      <hr>
+      <a class="btn btn-warning  btn-sm btn-block" href="{% url 'make_order' %}">Make order</a>
+      <hr>
+
+		</div>
+	</div>
+
+
+</div>

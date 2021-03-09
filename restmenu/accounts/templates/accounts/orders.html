@@ -1,0 +1,71 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+{% include 'accounts/status.html' %}
+{% load render_table from django_tables2 %}
+
+
+<br>
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h3 class="text-center">Orders</h3>
+      <a class="btn btn-outline-danger btn-md" href="{% url 'delete_all_orders' %}">Delete all orders</a>
+    </div>
+    <br>
+    
+    </div>
+      {% include 'accounts/order_table.html' %}
+    <br>
+    <!--<div class="card card-body">
+      <table class="table table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>E-mail</th>
+          <th>Supper1</th>
+          <th>Supper2</th>
+          <th>Meal1</th>
+          <th>Meal2</th>
+          <th>Meal3</th>
+          <th>Meal4</th>
+          <th>Pickup</th>
+          <th>Pickup-time</th>
+          <th>Note</th>
+          <th>Update</th>
+          <th>Delete</th>
+
+
+
+        </tr>
+
+
+        {% for order in orders%}
+        <tr>
+                        <td>{{order.name}}</td>
+                        <td>{{order.phone}}</td>
+                        <td>{{order.email}}</td>
+                        <td>{{order.supper1}}</td>
+                        <td>{{order.supper2}}</td>
+                        <td>{{order.meal1}}</td>
+                        <td>{{order.meal2}}</td>
+                        <td>{{order.meal3}}</td>
+                        <td>{{order.meal4}}</td>
+                        <td>{{order.pickup}}</td>
+                        <td>{{order.pickup_time}}</td>
+                        <td>{{order.note}}</td>
+                        <td><a href="{% url 'edit_order' order.id %}">Update</a></td>
+                        <td><a href="{% url 'delete' order.id %}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>-->
+  </div>
+
+</div>
+
+
+{% endblock %}
