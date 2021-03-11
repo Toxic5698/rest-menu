@@ -6,13 +6,13 @@
 <div class="row">
     <div class="col-md-6">
         <div class="card card-body">
-            <p>Opravdu smazat vsechny objednavky?</p>
+            <p>Opravdu smazat všechny objednávky?</p>
 
 
             <form action="" method="POST">
             {% csrf_token%}
 
-            <a class ="btn btn-warning" href="{% url 'orders' %}">Cancel</a>
+            <a class ="btn btn-warning" href="{% url 'orders' %}">Zpět</a>
 
             <input class="btn btn-danger" type="submit" name="Confirm">
 

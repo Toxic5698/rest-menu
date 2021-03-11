@@ -87,11 +87,14 @@ class EditSupperForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(EditSupperForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Název'})
         self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Alergeny'})
         self.fields['price'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Cena'})
     class Meta:
         model = Supper
         fields = '__all__'
@@ -101,13 +104,17 @@ class EditMealForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(EditMealForm, self).__init__(*args, **kwargs)
         self.fields['portion'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Porce'})
         self.fields['name'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Název'})
         self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Alergeny'})
         self.fields['price'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Cena'})
     class Meta:
         model = Meal
         fields = '__all__'
@@ -117,9 +124,11 @@ class EditDesertForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(EditDesertForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Název'})
         self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control'})
+        'class': 'form-control',
+        'placeholder': 'Alergeny'})
     class Meta:
         model = Desert
         fields = '__all__'

@@ -1,12 +1,11 @@
-
-
-	<br>
-
+<br>
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
+			{% if request.user.is_staff %}
 			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'edit_menu' menu.id %}">Edit menu</a>
       <hr>
+			{% endif %}
 			<h5 class="text-center">{{menu.day}}</h5>
 			<div class="col-md">
     		<div class="card card-body">

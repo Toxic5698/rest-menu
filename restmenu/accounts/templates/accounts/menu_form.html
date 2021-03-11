@@ -99,7 +99,9 @@
             <form action="" method="POST">
             {% csrf_token%}
 
-                {{ formSupper.as_p }}
+                <p>{{ formSupper.name }}</p>
+                <p>{{ formSupper.alergens }}</p>
+                <p>{{ formSupper.price }}</p>
                 <hr>
                 <input class="btn btn-primary btn-block" type="submit" name="AddSupper">
                 <hr>
@@ -110,8 +112,10 @@
             <h4>Přidání nového hlavního jídla</h4>
             <form action="" method="POST">
             {% csrf_token%}
-
-                {{ formMeal.as_p }}
+                <p>{{ formMeal.portion }}</p>
+                <p>{{ formMeal.name }}</p>
+                <p>{{ formMeal.alergens }}</p>
+                <p>{{ formMeal.price }}</p>
                 <hr>
                 <input class="btn btn-primary btn-block" type="submit" name="AddMeal">
                 <hr>
@@ -123,7 +127,8 @@
             <form action="" method="POST">
             {% csrf_token%}
 
-                {{ formDesert.as_p }}
+                <p>{{ formDesert.name }}</p>
+                <p>{{ formDesert.alergens }}</p>
                 <hr>
                 <input class="btn btn-primary btn-block" type="submit" name="AddDesert">
                 <hr>

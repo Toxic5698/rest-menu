@@ -1,13 +1,35 @@
 {%  extends 'accounts/main.html' %}
+{% load static %}
 
 {% block content %}
 
+{% if request.user.is_staff %}
+
 {%  include 'accounts/status.html' %}
 
-{%  include 'accounts/menu.html' %}
+{% endif %}
 
+{%  include 'accounts/menu.html' %}
+<br>
+<div id="gallery">
+{%  include 'accounts/gallery.html' %}
+</div>
 <br>
 
-
+<div id="contacts" class="d-flex flex-row">
+  <div class="card card-body overflow-hidden">
+    {%  include 'accounts/contacts.html' %}
+  </div>
+  <div class="card card-body">
+    <img src="{% static 'images/port.jpg' %}" class="card-img-top rounded" alt="Portrait">
+    <div class="card-body">
+      <h3>RESTMENU</h3>
+      <p>se sídlem v Jihlavě</p>
+      <p>tel. 731663897</p>
+      <p>e-mail ninja@cechpetr.cz</p>
+    </div>
+  </div>
+</div>
+<br>
 
 {% endblock %}

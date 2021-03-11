@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login, logout
+
 from django.contrib import messages
+
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
 from django.db.models import Sum
+
 from django.views.generic import ListView
+
 from django_tables2 import RequestConfig
 
 from datetime import date
@@ -72,6 +77,7 @@ def menu(request):
     return render(request, 'accounts/menu.html')
 
 
+@login_required(login_url='login')
 def editMenu(request, pk):
 
     menu = Menu.objects.get(id=pk)
@@ -131,9 +137,7 @@ def makeOrder(request):
             form.save()
             messages.success(request, f'Order complete')
             return redirect('/')
-        else:
-            messages.success(request, f'error')
-            print(form.errors)
+
 
     counting_portions1 = [
     'supper1', 'supper2', 'meal1', 'meal2', 'meal3', 'meal4'
@@ -156,6 +160,7 @@ class OrderListView(ListView):
     template_name = 'accounts/order_table.html'
 
 
+@login_required(login_url='login')
 def orders(request):
     orders = Order.objects.all()
     menu = Menu.objects.last()
@@ -182,6 +187,7 @@ def orders(request):
     return render(request, 'accounts/orders.html', context)
 
 
+@login_required(login_url='login')
 def editOrder(request, pk):
     menu = Menu.objects.last()
 
@@ -201,6 +207,7 @@ def editOrder(request, pk):
     return render(request, 'accounts/edit_order.html', context)
 
 
+@login_required(login_url='login')
 def deleteOrder(request, pk):
     menu = Menu.objects.last()
     order = Order.objects.get(id=pk)
@@ -211,7 +218,7 @@ def deleteOrder(request, pk):
     context = {'item': order, 'menu': menu}
     return render(request, 'accounts/delete.html', context)
 
-
+@login_required(login_url='login')
 def deleteOrders(request):
     menu = Menu.objects.last()
     orders = Order.objects.all()
@@ -223,6 +230,7 @@ def deleteOrders(request):
     return render(request, 'accounts/delete_all_orders.html', context)
 
 
+@login_required(login_url='login')
 def editSupper(request, pk):
     menu = Menu.objects.last()
 
@@ -242,6 +250,7 @@ def editSupper(request, pk):
     return render(request, 'accounts/edit_supper.html', context)
 
 
+@login_required(login_url='login')
 def editMeal(request, pk):
     menu = Menu.objects.last()
 
@@ -261,6 +270,7 @@ def editMeal(request, pk):
     return render(request, 'accounts/edit_meal.html', context)
 
 
+@login_required(login_url='login')
 def editDesert(request, pk):
     menu = Menu.objects.last()
 
