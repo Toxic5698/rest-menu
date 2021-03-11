@@ -75,12 +75,21 @@ class Order(models.Model):
     name = models.CharField(max_length=200, null=True)
     phone = models.PositiveIntegerField(null=True)
     email = models.EmailField(max_length=254, blank=True, default=None)
+<<<<<<< HEAD
     supper1 = models.PositiveIntegerField(null=True, blank=True)
     supper2 = models.PositiveIntegerField(null=True, blank=True)
     meal1 = models.PositiveIntegerField(null=True, blank=True)
     meal2 = models.PositiveIntegerField(null=True, blank=True)
     meal3 = models.PositiveIntegerField(null=True, blank=True)
     meal4 = models.PositiveIntegerField(null=True, blank=True)
+=======
+    supper1 = models.PositiveIntegerField(null=True, blank=True, default=0)
+    supper2 = models.PositiveIntegerField(null=True, blank=True, default=0)
+    meal1 = models.PositiveIntegerField(null=True, blank=True, default=0)
+    meal2 = models.PositiveIntegerField(null=True, blank=True, default=0)
+    meal3 = models.PositiveIntegerField(null=True, blank=True, default=0)
+    meal4 = models.PositiveIntegerField(null=True, blank=True, default=0)
+>>>>>>> main
     pickup = models.BooleanField(blank=True, default=False)
     pickup_time = models.CharField(
     max_length=200, default=False, blank=True, choices=PICKUP_TIME
