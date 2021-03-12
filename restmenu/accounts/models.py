@@ -81,14 +81,6 @@ class Order(models.Model):
     meal2 = models.PositiveIntegerField(null=True, blank=True)
     meal3 = models.PositiveIntegerField(null=True, blank=True)
     meal4 = models.PositiveIntegerField(null=True, blank=True)
-
-    supper1 = models.PositiveIntegerField(null=True, blank=True, default=0)
-    supper2 = models.PositiveIntegerField(null=True, blank=True, default=0)
-    meal1 = models.PositiveIntegerField(null=True, blank=True, default=0)
-    meal2 = models.PositiveIntegerField(null=True, blank=True, default=0)
-    meal3 = models.PositiveIntegerField(null=True, blank=True, default=0)
-    meal4 = models.PositiveIntegerField(null=True, blank=True, default=0)
-
     pickup = models.BooleanField(blank=True, default=False)
     pickup_time = models.CharField(
     max_length=200, default=False, blank=True, choices=PICKUP_TIME

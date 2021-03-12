@@ -1,12 +1,32 @@
 {% load static %}
-<div class="d-flex flex-row">
 
+<div class="container">
 
-      <img src="{% static 'images/1.jpg' %}" class="w-25 rounded" alt="...">
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Gallery</h1>
 
-      <img src="{% static 'images/2.jpg' %}" class="d-block w-25 rounded" alt="...">
+  <hr class="mt-2 mb-5">
 
-      <img src="{% static 'images/3.jpg' %}" class="d-block w-25 rounded" alt="...">
-      <img src="{% static 'images/4.jpg' %}" class="d-block w-25 rounded" alt="...">
+  <div class="row text-center text-lg-left">
 
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="{% static 'images/1.jpg' %}" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="{% static 'images/1.jpg' %}" alt="">
+          </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="{% static 'images/2.jpg' %}" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="{% static 'images/2.jpg' %}" alt="">
+          </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="{% static 'images/3.jpg' %}" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+          </a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="{% static 'images/4.jpg' %}" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+          </a>
+    </div>
+  </div>
 </div>
