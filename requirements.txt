@@ -23,3 +23,9 @@ Django == 2.2.12
 # rest-menu/accounts/tables.py: 1
 # rest-menu/accounts/views.py: 13
 django_tables2 == 2.3.4
+whitenoise==5.2.0
+urllib3==1.25.8
+sqlparse==0.2.4
+gunicorn==20.0.4
+Pillow==7.0.0
+six==1.14.0
