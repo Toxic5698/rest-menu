@@ -20,4 +20,10 @@
 			background-color: #7CD1C0;
 		}
 
+		.hello-msg{
+    font-size: 15px;
+    color: white;
+    margin: 10px
+    }
+
 </style>

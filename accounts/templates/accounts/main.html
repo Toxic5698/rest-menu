@@ -12,26 +12,7 @@
 
 </head>
 <body>
-	<style>
-			body{
-				background-color: #ebeff5;
-			}
 
-
-			#total-order{
-				background-color: #4cb4c7;
-			}
-
-
-			#supper-card{
-				background-color: #7abecc;
-			}
-
-			#meal-card{
-				background-color: #7CD1C0;
-			}
-
-	</style>
 	{%  include 'accounts/navbar.html' %}
 	<div class="container-fluid">
 		{% for message in messages %}
@@ -55,8 +36,12 @@
 
 	{% endblock %}
   </div>
-	<hr>
-	<p> (C) Petr Cech 2021 </p>
+	<div class="position-sticky bottom">
+
+			<hr>
+			<p class="text-center"> © Petr Cech 2021 </p>
+
+	</div>
 
 </body>
 
