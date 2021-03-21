@@ -18,21 +18,21 @@
   <div class="mb-3 row">
     <label for="inputName" class="col-lg-4 col-form-label">Jméno*</label>
     <div class="col-lg-8">
-      {{form.name}}
+      <input type="text" name="name" maxlength="200" class="form-control" placeholder="Vyplňte jméno" required="" id="id_name">
     </div>
   </div>
 
   <div class="mb-3 row">
     <label for="inputPhone" class="col-lg-4 col-form-label">Telefon*</label>
     <div class="col-lg-8">
-      {{form.phone}}
+      <input type="number" name="phone" min="0" class="form-control" placeholder="Vyplňte telefonní číslo" required="" id="id_phone">
     </div>
   </div>
 
   <div class="mb-3 row">
     <label for="inputEmail" class="col-lg-4 col-form-label">E-mail</label>
     <div class="col-lg-8">
-      {{form.email}}
+      <input type="email" name="email" maxlength="254" class="form-control" placeholder="Vyplňte e-mail" id="id_email">
     </div>
   </div>
 
@@ -49,9 +49,10 @@
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
 
           {% else %}
-              Počet: {{form.supper1}}
 
+              Počet: <input type="number" name="supper1" min="0" class="form-control" id="id_supper1">
           {% endif %}
+
 
     		</div>
     	</div>
@@ -67,9 +68,10 @@
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
 
           {% else %}
-              Počet: {{form.supper2}}
 
+              Počet: <input type="number" name="supper2" min="0" class="form-control" id="id_supper2">
           {% endif %}
+
     		</div>
     	</div>
     </div>
@@ -84,13 +86,11 @@
     		</div>
     		<div class="card-body">
           {% if c_p.meal1__sum >= menu.meal1_portions %}
-
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
-
           {% else %}
-              Počet: {{form.meal1}}
-
+              Počet: <input type="number" name="meal1" min="0" class="form-control" id="id_meal1">
           {% endif %}
+
     		</div>
     	</div>
     </div>
@@ -101,12 +101,9 @@
     		</div>
     		<div class="card-body">
           {% if c_p.meal2__sum >= menu.meal2_portions %}
-
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
-
           {% else %}
-              Počet: {{form.meal2}}
-
+              Počet: <input type="number" name="meal2" min="0" class="form-control" id="id_meal2">
           {% endif %}
     		</div>
     	</div>
@@ -121,12 +118,9 @@
     		</div>
     		<div class="card-body">
           {% if c_p.meal3__sum >= menu.meal3_portions %}
-
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
-
           {% else %}
-              Počet: {{form.meal3}}
-
+              Počet: <input type="number" name="meal3" min="0" class="form-control" id="id_meal3">
           {% endif %}
     		</div>
     	</div>
@@ -138,12 +132,9 @@
     		</div>
     		<div class="card-body">
           {% if c_p.meal4__sum >= menu.meal4_portions %}
-
               <small class="text-warning bg-dark rounded"> -Vyprodáno- </small>
-
           {% else %}
-              Počet: {{form.meal4}}
-
+              Počet: <input type="number" name="meal4" min="0" class="form-control" id="id_meal4">
           {% endif %}
     		</div>
     	</div>
@@ -153,7 +144,7 @@
   <div class="mb-3 row">
     <label for="inputPickup" class="col-sm-4 col-form-label">Zabalit s sebou</label>
     <div class="col-lg-8">
-      {{form.pickup}}
+      <input type="checkbox" name="pickup" class="form-check-input w-25 h-75" id="id_pickup">
     </div>
   </div>
 
@@ -167,10 +158,10 @@
   <div class="mb-3 row">
     <label for="inputNote" class="col-sm-4 col-form-label">Poznámka</label>
     <div class="col-lg-8">
-      {{form.note}}
+      <textarea name="note" cols="40" rows="10" maxlength="999" class="form-control" placeholder="Chcete nám něco vzkázat?" id="id_note"></textarea>
     </div>
   </div>
-  <input class="btn btn-warning" type="submit" name="Submit">
+  <input class="btn btn-warning w-100" type="submit" name="Submit">
 
 </div>
 </form>

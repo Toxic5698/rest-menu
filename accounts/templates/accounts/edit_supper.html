@@ -8,13 +8,14 @@
         <form action="" method="POST">
         {% csrf_token%}
 
-            {{ formSupper.as_p }}
-            <hr>
-            <input class="btn btn-primary btn-block" type="submit" name="AddSupper">
-            <hr>
+          <input type="text" name="name" value="{{supper.name}}" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+          <input type="text" name="alergens" value="{{supper.alergens}}"maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+          <input type="number" name="price" value="25" min="0" class="form-control" placeholder="Cena" required="" id="id_price">
+          <hr>
+          <input class="btn btn-primary btn-block" type="submit" name="AddSupper">
+          <hr>
         </form>
     </div>
 </div>
-
 
 {% endblock %}

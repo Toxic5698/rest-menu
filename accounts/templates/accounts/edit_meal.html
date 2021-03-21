@@ -7,11 +7,13 @@
         <h4>Uprava ulozeneho hlavního jidla</h4>
         <form action="" method="POST">
         {% csrf_token%}
-
-            {{ formMeal.as_p }}
-            <hr>
-            <input class="btn btn-primary btn-block" type="submit" name="AddMeal">
-            <hr>
+          <input type="number" name="portion" value="{{meal.portion}}"class="form-control" placeholder="Porce" required="" id="id_portion">
+          <input type="text" name="name" value="{{meal.name}}" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+          <input type="text" name="alergens" value="{{meal.alergens}}" maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+          <input type="number" name="price" value="110" min="0" class="form-control" placeholder="Cena" required="" id="id_price">
+          <hr>
+          <input class="btn btn-primary btn-block" type="submit" name="AddMeal">
+          <hr>
         </form>
     </div>
 </div>

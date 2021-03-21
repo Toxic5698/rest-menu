@@ -8,7 +8,12 @@
         <form action="" method="POST">
         {% csrf_token%}
 
-            {{ formDesert.as_p }}
+          <div class="mb-3">
+            <input type="text" name="name" value="{{desert.name}}" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+          </div>
+          <div class="mb-3">
+            <input type="text" name="alergens" value="{{desert.alergens}}" maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+          </div>
             <hr>
             <input class="btn btn-primary btn-block" type="submit" name="AddDesert">
             <hr>

@@ -8,35 +8,8 @@ from .models import Order, Menu, Supper, Meal, Desert
 class OrderForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Vyplňte jméno'})
-        self.fields['phone'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Vyplňte telefonní číslo'})
-        self.fields['email'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Vyplňte e-mail'})
-        self.fields['supper1'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['supper2'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['meal1'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['meal2'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['meal3'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['meal4'].widget.attrs.update({
-        'class': 'form-control'})
-        self.fields['pickup'].widget.attrs.update({
-        'class': 'form-check-input w-25 h-75',
-        })
         self.fields['pickup_time'].widget.attrs.update({
         'class': 'form-control',})
-        self.fields['note'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Chcete nám něco vzkázat?'})
 
     class Meta:
         model = Order
@@ -82,53 +55,19 @@ class MenuForm(ModelForm):
         fields = '__all__'
 
 
-
 class EditSupperForm(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(EditSupperForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Název'})
-        self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Alergeny'})
-        self.fields['price'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Cena'})
     class Meta:
         model = Supper
         fields = '__all__'
 
 
 class EditMealForm(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(EditMealForm, self).__init__(*args, **kwargs)
-        self.fields['portion'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Porce'})
-        self.fields['name'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Název'})
-        self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Alergeny'})
-        self.fields['price'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Cena'})
     class Meta:
         model = Meal
         fields = '__all__'
 
 
 class EditDesertForm(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(EditDesertForm, self).__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Název'})
-        self.fields['alergens'].widget.attrs.update({
-        'class': 'form-control',
-        'placeholder': 'Alergeny'})
     class Meta:
         model = Desert
         fields = '__all__'

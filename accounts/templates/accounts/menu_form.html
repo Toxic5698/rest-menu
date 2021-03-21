@@ -82,14 +82,11 @@
                     <label>Desert</label>
                 </div>
 
-
-
-
                 <hr>
-                <input class="btn btn-primary btn-block" type="submit" name="EditMenu">
+                <input class="btn btn-primary w-100" type="submit" name="EditMenu">
                 <hr>
-
             </form>
+
         </div>
     </div>
 
@@ -97,13 +94,13 @@
         <div class="card card-body">
             <h4>Přidání nové polévky</h4>
             <form action="" method="POST">
-            {% csrf_token%}
+            {% csrf_token %}
 
-                <p>{{ formSupper.name }}</p>
-                <p>{{ formSupper.alergens }}</p>
-                <p>{{ formSupper.price }}</p>
+                <input type="text" name="name" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+                <input type="text" name="alergens" maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+                <input type="number" name="price" value="25" min="0" class="form-control" placeholder="Cena" required="" id="id_price">
                 <hr>
-                <input class="btn btn-primary btn-block" type="submit" name="AddSupper">
+                <input class="btn btn-primary w-100" type="submit" name="AddSupper">
                 <hr>
             </form>
         </div>
@@ -111,13 +108,13 @@
         <div class="card card-body">
             <h4>Přidání nového hlavního jídla</h4>
             <form action="" method="POST">
-            {% csrf_token%}
-                <p>{{ formMeal.portion }}</p>
-                <p>{{ formMeal.name }}</p>
-                <p>{{ formMeal.alergens }}</p>
-                <p>{{ formMeal.price }}</p>
+            {% csrf_token %}
+                <input type="number" name="portion" class="form-control" placeholder="Porce" required="" id="id_portion">
+                <input type="text" name="name" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+                <input type="text" name="alergens" maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+                <input type="number" name="price" value="110" min="0" class="form-control" placeholder="Cena" required="" id="id_price">
                 <hr>
-                <input class="btn btn-primary btn-block" type="submit" name="AddMeal">
+                <input class="btn btn-primary w-100" type="submit" name="AddMeal">
                 <hr>
             </form>
         </div>
@@ -127,10 +124,14 @@
             <form action="" method="POST">
             {% csrf_token%}
 
-                <p>{{ formDesert.name }}</p>
-                <p>{{ formDesert.alergens }}</p>
+
+                <input type="text" name="name" maxlength="200" class="form-control" placeholder="Název" required="" id="id_name">
+
+
+                <input type="text" name="alergens" maxlength="200" class="form-control" placeholder="Alergeny" required="" id="id_alergens">
+
                 <hr>
-                <input class="btn btn-primary btn-block" type="submit" name="AddDesert">
+                <input class="btn btn-primary w-100" type="submit" name="AddDesert">
                 <hr>
 
             </form>

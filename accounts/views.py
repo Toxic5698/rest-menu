@@ -246,6 +246,7 @@ def editSupper(request, pk):
     context = {
     'menu': menu,
     'formSupper': formSupper,
+    'supper': supper,
     }
     return render(request, 'accounts/edit_supper.html', context)
 
@@ -266,6 +267,7 @@ def editMeal(request, pk):
     context = {
     'menu': menu,
     'formMeal': formMeal,
+    'meal': meal,
     }
     return render(request, 'accounts/edit_meal.html', context)
 
@@ -286,5 +288,6 @@ def editDesert(request, pk):
     context = {
     'menu': menu,
     'formDesert': formDesert,
+    'desert': desert,
     }
     return render(request, 'accounts/edit_desert.html', context)
