@@ -72,20 +72,39 @@ class Order(models.Model):
     ('13:30', '13:30'),
     )
 
-    name = models.CharField(max_length=200, null=True)
-    phone = models.PositiveIntegerField(null=True)
-    email = models.EmailField(max_length=254, blank=True, default=None)
-    supper1 = models.PositiveIntegerField(null=True, blank=True)
-    supper2 = models.PositiveIntegerField(null=True, blank=True)
-    meal1 = models.PositiveIntegerField(null=True, blank=True)
-    meal2 = models.PositiveIntegerField(null=True, blank=True)
-    meal3 = models.PositiveIntegerField(null=True, blank=True)
-    meal4 = models.PositiveIntegerField(null=True, blank=True)
-    pickup = models.BooleanField(blank=True, default=False)
-    pickup_time = models.CharField(
-    max_length=200, default=False, blank=True, choices=PICKUP_TIME
+    name = models.CharField(max_length=200, null=True, verbose_name="Jméno")
+    phone = models.PositiveIntegerField(null=True, verbose_name="Telefon")
+    email = models.EmailField(
+    max_length=254, blank=True, default=None, verbose_name="E-mail"
     )
-    note = models.TextField(max_length=999, blank=True, default=None, null=True)
+    supper1 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Polévka 1"
+    )
+    supper2 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Polévka 2"
+    )
+    meal1 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Hlavní jídlo 1"
+    )
+    meal2 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Hlavní jídlo 2"
+    )
+    meal3 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Hlavní jídlo 3"
+    )
+    meal4 = models.PositiveIntegerField(
+    null=True, blank=True, verbose_name="Hlavní jídlo 4"
+    )
+    pickup = models.BooleanField(
+    blank=True, default=False, verbose_name="S sebou"
+    )
+    pickup_time = models.CharField(
+    max_length=200, default=False, blank=True, choices=PICKUP_TIME,
+    verbose_name="Čas vyzvednutí"
+    )
+    note = models.TextField(
+    max_length=999, blank=True, default=None, null=True, verbose_name="Poznámka"
+    )
     #price = models.PositiveIntegerField(null=True, default=None)
 
 

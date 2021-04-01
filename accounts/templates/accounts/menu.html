@@ -4,14 +4,12 @@
 	<div class="col-md">
 		<div class="card card-body">
 			{% if request.user.is_staff %}
-			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'edit_menu' menu.id %}">Edit menu</a>
+			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'edit_menu' menu.id %}">Upravit menu</a>
       <hr>
 			{% endif %}
 			<h5 class="text-center">{{menu.day}}</h5>
 			<div class="col-md">
     		<div class="card card-body">
-    			<h4>Info</h4>
-    			<hr>
             <blockquote class="blockquote">
                  <p>{{menu.info|linebreaks}}</p>
             </blockquote>
@@ -21,7 +19,7 @@
 
 			<div class="col-md">
     		<div class="card card-body">
-    			<h4>Polévky</h4>
+    			<h4 class="text-center">Polévky</h4>
     			<hr>
 
 					<figure >
@@ -60,7 +58,7 @@
 
     	<div class="col-md">
     		<div class="card card-body">
-    			<h4>Hlavní chody</h4>
+    			<h4 class="text-center">Hlavní jídla</h4>
           <hr>
 
           <figure>
@@ -130,7 +128,7 @@
 
       <div class="col-md">
     		<div class="card card-body">
-    			<h4>Desert</h4>
+    			<h4 class="text-center">Desert</h4>
           <hr>
 
           <figure>
@@ -146,7 +144,7 @@
     	</div>
 
       <hr>
-      <a class="btn btn-warning  btn-sm btn-block" href="{% url 'make_order' %}">Make order</a>
+      <a class="btn btn-warning  btn-sm btn-block" href="{% url 'make_order' %}">Chci si objednat!</a>
       <hr>
 
 		</div>

@@ -4,7 +4,7 @@
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">
-      <img src="{% static 'images/logo.png' %}">
+      <img src="{% static 'images/logo.png' %}" class="logo">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,26 +14,26 @@
       <ul class="navbar-nav">
         {% if request.user.is_staff %}
         <li class="nav-item">
-          <a class="nav-link fs-5" href="{% url 'edit_menu' menu.id %}">Edit menu</a>
+          <a class="nav-link fs-5" href="{% url 'edit_menu' menu.id %}">Upravit menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="{% url 'orders' %}">List of orders</a>
+          <a class="nav-link fs-5" href="{% url 'orders' %}">Seznam objednávek</a>
         </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link active fs-5" href="{% url 'make_order' %}">Make order</a>
+          <a class="nav-link active fs-5" href="{% url 'make_order' %}">Chci si objednat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="{% url 'home'%}#gallery">Gallery</a>
+          <a class="nav-link fs-5" href="{% url 'home'%}#gallery">Galerie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="{% url 'home'%}#contacts">Contacts</a>
+          <a class="nav-link fs-5" href="{% url 'home'%}#contacts">Kontakty</a>
         </li>
       </ul>
     </div>
       {% if request.user.is_staff %}
-      <span class="hello-msg">Hello, {{request.user}}  </span>
-      <span><a class="btn btn-warning" href="{% url 'logout' %}">Logout</a></span>
+      <span class="hello-msg">Přihlášen uživatel: {{request.user}}  </span>
+      <span><a class="btn btn-warning" href="{% url 'logout' %}">Odhlásit</a></span>
       {% endif %}
   </div>
 </nav>

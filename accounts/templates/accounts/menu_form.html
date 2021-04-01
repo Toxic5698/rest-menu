@@ -11,7 +11,7 @@
             {% csrf_token%}
                 <div class="form-floating">
                     {{formMenu.day}}
-                    <label>Day</label>
+                    <label>Den</label>
                 </div>
                 <div class="form-floating">
                     {{formMenu.info}}
@@ -20,7 +20,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.supper1 }}
-                    <label>Supper1</label>
+                    <label>Polévka 1</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.supper1_portions }}
@@ -30,7 +30,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.supper2 }}
-                    <label>Supper2</label>
+                    <label>Polévka 2</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.supper2_portions }}
@@ -40,7 +40,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.meal1 }}
-                    <label>Meal1</label>
+                    <label>Hlavní jídlo 1</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.meal1_portions }}
@@ -50,7 +50,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.meal2 }}
-                    <label>Meal2</label>
+                    <label>Hlavní jídlo 2</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.meal2_portions }}
@@ -60,7 +60,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.meal3 }}
-                    <label>Meal3</label>
+                    <label>Hlavní jídlo 3</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.meal3_portions }}
@@ -70,7 +70,7 @@
                 <div class="d-flex flex-row">
                   <div class="form-floating w-75">
                     {{ formMenu.meal4 }}
-                    <label>Meal4</label>
+                    <label>Hlavní jídlo 4</label>
                   </div>
                   <div class="form-floating w-25">
                     {{ formMenu.meal4_portions }}
@@ -156,7 +156,7 @@
 
                               <td>{{s.name}}</td>
                               <td>{{s.alergens}}</td>
-                              <td><a id="supper" href="{% url 'edit_supper' s.id %}">Edit</a></td>
+                              <td><a id="supper" href="{% url 'edit_supper' s.id %}">Změnit</a></td>
                       </tr>
               {% endfor %}
 
@@ -180,7 +180,7 @@
                               <td>{{m.portion}}g</td>
                               <td>{{m.name}}</td>
                               <td>{{m.alergens}}</td>
-                              <td><a id="meal" href="{% url 'edit_meal' m.id %}">Edit</a></td>
+                              <td><a id="meal" href="{% url 'edit_meal' m.id %}">Změnit</a></td>
                       </tr>
               {% endfor %}
 
@@ -202,7 +202,7 @@
 
                               <td>{{d.name}}</td>
                               <td>{{d.alergens}}</td>
-                              <td><a href="{% url 'edit_desert' d.id %}">Edit</a></td>
+                              <td><a href="{% url 'edit_desert' d.id %}">Změnit</a></td>
                       </tr>
               {% endfor %}
 

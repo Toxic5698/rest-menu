@@ -25,7 +25,7 @@ SECRET_KEY = 'wz1gti$ophgy5^ieuqy(+ry(6xx6^)-r41ghez^_+px!0!_c6h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['restmenu2021.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'restmenu.cechpetr.cz', '81.2.248.58']
 
 
 # Application definition
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

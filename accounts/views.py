@@ -34,7 +34,7 @@ def loginPage(request):
                 return redirect('home')
             else:
                 messages.warning(
-                request, f'Wrong user or password, please try again.'
+                request, f'Nesprávný uživatel nebo heslo, zkuste znovu.'
                 )
 
         context={}
@@ -86,7 +86,7 @@ def editMenu(request, pk):
         formMenu = MenuForm(request.POST, instance=menu)
         if formMenu.is_valid():
             formMenu.save()
-            messages.success(request, f'Menu edited')
+            messages.success(request, f'Menu změněno!')
             return redirect('/')
 
     formSupper = EditSupperForm()
@@ -94,21 +94,21 @@ def editMenu(request, pk):
         formSupper = EditSupperForm(request.POST)
         if formSupper.is_valid():
             formSupper.save()
-            messages.success(request, f'Supper added')
+            messages.success(request, f'Polívka přidána!')
 
     formMeal = EditMealForm()
     if request.method == 'POST' and 'AddMeal' in request.POST:
         formMeal = EditMealForm(request.POST)
         if formMeal.is_valid():
             formMeal.save()
-            messages.success(request, f'Meal added')
+            messages.success(request, f'Hlavní jídlo přidáno!')
 
     formDesert = EditDesertForm()
     if request.method == 'POST' and 'AddDesert' in request.POST:
         formDesert = EditDesertForm(request.POST)
         if formDesert.is_valid():
             formDesert.save()
-            messages.success(request, f'Desert added')
+            messages.success(request, f'Desert přidán!')
 
     supper = Supper.objects.all()
     meal = Meal.objects.all()
@@ -135,7 +135,7 @@ def makeOrder(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Order complete')
+            messages.success(request, f'Objednávka dokončena!')
             return redirect('/')
 
 
@@ -197,7 +197,7 @@ def editOrder(request, pk):
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Order edited')
+            messages.success(request, f'Objednávka upravena!')
             return redirect('/orders/')
 
     context = {
@@ -240,7 +240,7 @@ def editSupper(request, pk):
         formSupper = EditSupperForm(request.POST, instance=supper)
         if formSupper.is_valid():
             formSupper.save()
-            messages.success(request, f'Supper edited')
+            messages.success(request, f'Polívka upravena!')
             return redirect('/edit_menu/1')
 
     context = {
@@ -261,7 +261,7 @@ def editMeal(request, pk):
         formMeal = EditMealForm(request.POST, instance=meal)
         if formMeal.is_valid():
             formMeal.save()
-            messages.success(request, f'Meal edited')
+            messages.success(request, f'Hlavní jídlo upraveno!')
             return redirect('/edit_menu/1')
 
     context = {
@@ -282,7 +282,7 @@ def editDesert(request, pk):
         formDesert = EditDesertForm(request.POST, instance=desert)
         if formDesert.is_valid():
             formDesert.save()
-            messages.success(request, f'Desert edited')
+            messages.success(request, f'Desert upraven!')
             return redirect('/edit_menu/1')
 
     context = {
