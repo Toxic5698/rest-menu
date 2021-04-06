@@ -9,6 +9,15 @@
 <hr>
 {%  include 'accounts/status.html' %}
 
+{% else %}
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 >Vítejte v RestMenu!</h1>
+    <a class="btn display-4" href="{% url 'make_order' %}">Rovnou si chci objednat!</a>
+  </div>
+</div>
+
 {% endif %}
 
 <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Menu</h1>
@@ -24,52 +33,49 @@
 <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0" id="contacts">Kontakty</h1>
 <hr>
 
-<div class="position-relative" style="height: 520px;">
-  <div class="card position-absolute top-50 start-50 translate-middle">
-    <div class="row">
-      <div class="col-md-6">
-        <script src="https://api.mapy.cz/loader.js"></script>
-        <script>Loader.load();</script>
-        <div class="container-fluid" id="mapa" style="width:280px; height:500px"></div>
-        <script>
-            var center = SMap.Coords.fromWGS84(15.5875417, 49.4013835);
-            var mapa = new SMap(JAK.gel("mapa"), center, 13);
-            mapa.addDefaultLayer(SMap.DEF_BASE).enable();
-            var scale = new SMap.Control.Scale();
-            mapa.addControl(scale, {left:"8px", bottom:"25px"});
-            var msOpt = SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM;
-            var mouse = new SMap.Control.Mouse(msOpt);
-            mapa.addControl(mouse);
-            var keyboard = new SMap.Control.Keyboard(SMap.KB_PAN | SMap.KB_ZOOM);
-            mapa.addControl(keyboard);
-            var selection = new SMap.Control.Selection(2);
-            mapa.addControl(selection);
-            var zn = new SMap.Control.ZoomNotification();
-            mapa.addControl(zn);
-            var zoomOpt = {showZoomMenu:false};
-            var zoom = new SMap.Control.Zoom(null,{titles:["Přiblížit", "Oddálit"], showZoomMenu:false});
-            mapa.addControl(zoom, {right:"2px", top:"10x"});
-            var lnt = "Zobrazit na Mapy.cz";
-            var lnd = JAK.mel("a", {href:"#", target:"_blank", innerHTML:lnt});
-            lnd.style.cssText = "position:absolute;left:8px; bottom:54px;"+
-            "display:block; padding:4px 8px; background-color:#fff; border:medium none;"+
-            "border-radius:3px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);"+
-            "text-decoration:none; color:#6b7580;";
-            mapa.getContainer().appendChild(lnd);
-        </script>
-      </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h5 class="card-title">RESTMENU</h5>
-          <p class="card-text">se sídlem v Jihlavě</p>
-          <p class="card-text"><small class="text-muted">e-mail ninja@cechpetr.cz</small></p>
-        </div>
-      </div>
+<script src="https://api.mapy.cz/loader.js"></script>
+<script>Loader.load();</script>
+<div class="container-fluid" id="mapa" style="height:200px"></div>
+<script>
+    var center = SMap.Coords.fromWGS84(15.5875417, 49.4013835);
+    var mapa = new SMap(JAK.gel("mapa"), center, 13);
+    mapa.addDefaultLayer(SMap.DEF_BASE).enable();
+    var scale = new SMap.Control.Scale();
+    mapa.addControl(scale, {left:"8px", bottom:"25px"});
+    var msOpt = SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM;
+    var mouse = new SMap.Control.Mouse(msOpt);
+    mapa.addControl(mouse);
+    var keyboard = new SMap.Control.Keyboard(SMap.KB_PAN | SMap.KB_ZOOM);
+    mapa.addControl(keyboard);
+    var selection = new SMap.Control.Selection(2);
+    mapa.addControl(selection);
+    var zn = new SMap.Control.ZoomNotification();
+    mapa.addControl(zn);
+    var zoomOpt = {showZoomMenu:false};
+    var zoom = new SMap.Control.Zoom(null,{titles:["Přiblížit", "Oddálit"], showZoomMenu:false});
+    mapa.addControl(zoom, {right:"2px", top:"10x"});
+    var lnt = "Zobrazit na Mapy.cz";
+    var lnd = JAK.mel("a", {href:"#", target:"_blank", innerHTML:lnt});
+    lnd.style.cssText = "position:absolute;left:8px; bottom:54px;"+
+    "display:block; padding:4px 8px; background-color:#fff; border:medium none;"+
+    "border-radius:3px; box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);"+
+    "text-decoration:none; color:#6b7580;";
+    mapa.getContainer().appendChild(lnd);
+</script>
+
+<hr>
+<div class="container-fluid">
+  <div class="card text-center position-relative bottom-0 start-50 translate-middle-x" style="max-width: 540px">
+    <div class="card-header">
+      <img class="img-fluid rounded" src="{% static 'images/port.jpg' %}" alt="podobizna">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">RESTMENU</h5>
+      <p class="card-text">se sídlem v Jihlavě</p>
+      <a href="mailto:ninja@cechpetr.cz" class="btn btn-primary">Napište nám</a>
     </div>
   </div>
 </div>
 
-
-<br>
 
 {% endblock %}

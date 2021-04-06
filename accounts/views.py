@@ -291,3 +291,12 @@ def editDesert(request, pk):
     'desert': desert,
     }
     return render(request, 'accounts/edit_desert.html', context)
+
+
+@login_required(login_url='login')
+def printMenu(request):
+    menu = Menu.objects.last()
+
+    context = {'menu': menu}
+
+    return render(request, 'accounts/print_menu.html', context)

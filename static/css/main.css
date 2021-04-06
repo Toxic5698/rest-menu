@@ -13,7 +13,7 @@
 
 
 		#supper-card{
-			background-color: #BB8378;
+			background-color: #D6BE2B;
 		}
 
 		#meal-card{
@@ -25,5 +25,28 @@
     color: white;
     margin: 10px
     }
+
+		.hero-image {
+		  background-image: url("/static/images/greetings.jpg");
+		  background-color: black;
+		  height: 750px;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  position: relative;
+		}
+
+		.hero-text {
+			text-align: center;
+			position: absolute;
+			top: 50%;
+			left: 25%;
+			transform: translate(-50%, -50%);
+			color: black;
+		}
+
+		a {
+			text-decoration: none !important;
+		}
 
 </style>

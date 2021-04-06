@@ -9,23 +9,92 @@
   <div class="row text-center text-lg-left">
 
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="{% static 'images/1.jpg' %}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="{% static 'images/1.jpg' %}" alt="">
-          </a>
+      <button type="button" class="btn d-block mb-4 h-100" data-bs-toggle="modal" data-bs-target="#prvni">
+        <img class="img-fluid img-thumbnail" src="{% static 'images/1.jpg' %}" alt="">
+      </button>
     </div>
+
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="{% static 'images/2.jpg' %}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="{% static 'images/2.jpg' %}" alt="">
-          </a>
+      <button type="button" class="btn d-block mb-4 h-100" data-bs-toggle="modal" data-bs-target="#druhy">
+        <img class="img-fluid img-thumbnail" src="{% static 'images/2.jpg' %}" alt="">
+      </button>
     </div>
+
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="{% static 'images/3.jpg' %}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="{% static 'images/3.jpg' %}" alt="">
-          </a>
+      <button type="button" class="btn d-block mb-4 h-100" data-bs-toggle="modal" data-bs-target="#treti">
+        <img class="img-fluid img-thumbnail" src="{% static 'images/3.jpg' %}" alt="">
+      </button>
     </div>
+
     <div class="col-lg-3 col-md-4 col-6">
-      <a href="{% static 'images/4.jpg' %}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="{% static 'images/4.jpg' %}" alt="">
-          </a>
+      <button type="button" class="btn d-block mb-4 h-100" data-bs-toggle="modal" data-bs-target="#ctvrty">
+        <img class="img-fluid img-thumbnail" src="{% static 'images/4.jpg' %}" alt="">
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="modal fade" id="prvni" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img class="img-fluid" src="{% static 'images/1.jpg' %}" alt="">
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="druhy" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img class="img-fluid" src="{% static 'images/2.jpg' %}" alt="">
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="treti" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img class="img-fluid" src="{% static 'images/3.jpg' %}" alt="">
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ctvrty" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img class="img-fluid" src="{% static 'images/4.jpg' %}" alt="">
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
