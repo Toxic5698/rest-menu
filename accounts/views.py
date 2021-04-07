@@ -240,7 +240,7 @@ def editSupper(request, pk):
         formSupper = EditSupperForm(request.POST, instance=supper)
         if formSupper.is_valid():
             formSupper.save()
-            messages.success(request, f'Polívka upravena!')
+            messages.success(request, f'Polévka upravena!')
             return redirect('/edit_menu/1')
 
     context = {

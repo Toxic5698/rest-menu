@@ -4,33 +4,28 @@
 {% block content %}
 
 {% if request.user.is_staff %}
-
-<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Přehled objednávek</h1>
-<hr>
 {%  include 'accounts/status.html' %}
-
 {% else %}
-
 <div class="hero-image">
-  <div class="hero-text">
+  <div class="hero-text shadow-lg p-3 mb-5 rounded text-wrap">
     <h1 >Vítejte v RestMenu!</h1>
     <a class="btn display-4" href="{% url 'make_order' %}">Rovnou si chci objednat!</a>
   </div>
 </div>
-
 {% endif %}
+<br id="menu">
 
 <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Menu</h1>
 <hr>
 {%  include 'accounts/menu.html' %}
-<br>
+<br id="gallery">
 
-<div id="gallery">
+<div >
 {%  include 'accounts/gallery.html' %}
 </div>
-<br>
+<br id="contacts">
 
-<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0" id="contacts">Kontakty</h1>
+<h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Kontakty</h1>
 <hr>
 
 <script src="https://api.mapy.cz/loader.js"></script>
@@ -72,6 +67,8 @@
     <div class="card-body">
       <h5 class="card-title">RESTMENU</h5>
       <p class="card-text">se sídlem v Jihlavě</p>
+      <p class="card-text">IČ 789321456</p>
+      <p class="card-text">Zavolejte nám <a href="tel:+420731663897">731663897</a></p>
       <a href="mailto:ninja@cechpetr.cz" class="btn btn-primary">Napište nám</a>
     </div>
   </div>
