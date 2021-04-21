@@ -62,16 +62,6 @@ class Menu(models.Model):
 
 
 class Order(models.Model):
-    PICKUP_TIME =(
-    ('10:30', '10:30'),
-    ('11:00', '11:00'),
-    ('11:30', '11:30'),
-    ('12:00', '12:00'),
-    ('12:30', '12:30'),
-    ('13:00', '13:00'),
-    ('13:30', '13:30'),
-    )
-
     name = models.CharField(max_length=200, null=True, verbose_name="Jméno")
     phone = models.PositiveIntegerField(null=True, verbose_name="Telefon")
     email = models.EmailField(
@@ -99,7 +89,7 @@ class Order(models.Model):
     blank=True, default=False, verbose_name="S sebou"
     )
     pickup_time = models.CharField(
-    max_length=200, default=False, blank=True, choices=PICKUP_TIME,
+    max_length=200, default=False, blank=True,
     verbose_name="Čas vyzvednutí"
     )
     note = models.TextField(

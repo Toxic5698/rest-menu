@@ -7,14 +7,14 @@
     <div class="col-md-6">
         <div class="card card-body">
             <p>Opravdu smazat objednavku od {{item}}?</p>
-            
+
 
             <form action="{% url 'delete' item.id %}" method="POST">
             {% csrf_token%}
 
-            <a class ="btn btn-warning" href="{% url 'orders' %}">Cancel</a>
+            <a class ="btn btn-warning" href="{% url 'orders' %}">Zpět</a>
 
-            <input class="btn btn-danger" type="submit" name="Confirm">
+            <input class="btn btn-danger" type="submit" name="Submit" value="Smazat">
 
             </form>
         </div>

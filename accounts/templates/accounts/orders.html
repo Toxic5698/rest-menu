@@ -8,64 +8,69 @@
 <br>
 
 <div class="row">
-  <div class="col-md">
+
     <div class="card card-body">
       <h3 class="text-center">Seznam objednávek</h3>
       <a class="btn btn-outline-danger btn-md" href="{% url 'delete_all_orders' %}">Vymazat všechny objednávky</a>
     </div>
+
+  <br>
+
+  <div class="card card-body">
+    <h5 class="text-center">Filtr</h5>
+    <form action="" method="get" class="form-control">
+      <!-- {{filter.form}} -->
+      <div class="row g-5">
+        <div class="col-sm">
+          <input type="text" name="name" id="id_name" class="form-control" placeholder="Jméno">
+        </div>
+        <div class="col-sm">
+          <input type="text" name="phone" id="id_phone" class="form-control" placeholder="Telefon">
+        </div>
+        <div class="col-sm">
+          <select name="pickup" id="id_pickup" class="form-select">
+            <option value="unknown" selected="" >S sebou</option>
+
+            <option value="true">Ano</option>
+
+            <option value="false">Ne</option>
+
+          </select>
+        </div>
+        <div class="col-sm">
+          <select name="pickup_time" id="id_pickup_time" class="form-select">
+            <option value="" selected="">Čas vyzvednutí</option>
+
+            <option value="10:30">10:30</option>
+
+            <option value="11:00">11:00</option>
+
+            <option value="11:30">11:30</option>
+
+            <option value="12:00">12:00</option>
+
+            <option value="12:30">12:30</option>
+
+            <option value="13:00">13:00</option>
+
+            <option value="13:30">13:30</option>
+
+          </select>
+        </div>
+        <div class="col-sm">
+          <input type="text" name="note" id="id_note" class="form-control" placeholder="Poznámka">
+        </div>
+      </div>
+      <br>
+      <button class="btn btn-outline-primary w-100" type="submit" name="button">Filtruj!</button>
+
+    </form>
     <br>
-
-    </div>
-      {% include 'accounts/order_table.html' %}
-    <br>
-    <!--<div class="card card-body">
-      <table class="table table-hover">
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>E-mail</th>
-          <th>Supper1</th>
-          <th>Supper2</th>
-          <th>Meal1</th>
-          <th>Meal2</th>
-          <th>Meal3</th>
-          <th>Meal4</th>
-          <th>Pickup</th>
-          <th>Pickup-time</th>
-          <th>Note</th>
-          <th>Update</th>
-          <th>Delete</th>
-
-
-
-        </tr>
-
-
-        {% for order in orders%}
-        <tr>
-                        <td>{{order.name}}</td>
-                        <td>{{order.phone}}</td>
-                        <td>{{order.email}}</td>
-                        <td>{{order.supper1}}</td>
-                        <td>{{order.supper2}}</td>
-                        <td>{{order.meal1}}</td>
-                        <td>{{order.meal2}}</td>
-                        <td>{{order.meal3}}</td>
-                        <td>{{order.meal4}}</td>
-                        <td>{{order.pickup}}</td>
-                        <td>{{order.pickup_time}}</td>
-                        <td>{{order.note}}</td>
-                        <td><a href="{% url 'edit_order' order.id %}">Update</a></td>
-                        <td><a href="{% url 'delete' order.id %}">Delete</a></td>
-
-        </tr>
-        {% endfor %}
-
-      </table>
-    </div>-->
+    {% render_table table %}
   </div>
-
+  <br>
 </div>
+
 
 
 {% endblock %}

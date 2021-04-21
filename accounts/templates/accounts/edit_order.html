@@ -8,10 +8,21 @@
         <form action="" method="POST">
         {% csrf_token%}
 
-            {{ form.as_p }}
-            <hr>
-            <input class="btn btn-primary btn-block" type="submit" name="Submit" value="Uložit">
-            <hr>
+          <input type="text" placeholder="Jméno" class="form-control" name="name" maxlength="200" required="" id="id_name" value="{{order.name}}">
+          <input type="number" placeholder="Telefon" class="form-control" name="phone"  min="0" required="" id="id_phone" value="{{order.phone}}">
+          <input type="email" placeholder="E-mail" class="form-control" name="email" maxlength="254" id="id_email" value="{{order.email}}">
+          <input type="number" placeholder="Polévka 1" class="form-control" name="supper1"  min="0" id="id_supper1" value="{{order.supper1}}">
+          <input type="number" placeholder="Polévka 2" class="form-control" name="supper2" min="0" id="id_supper2" value="{{order.supper2}}">
+          <input type="number" placeholder="Hlavní jídlo 1" class="form-control" name="meal1" min="0" id="id_meal1" value="{{order.meal1}}">
+          <input type="number" placeholder="Hlavní jídlo 2" class="form-control" name="meal2" min="0" id="id_meal2" value="{{order.meal2}}">
+          <input type="number" placeholder="Hlavní jídlo 3" class="form-control" name="meal3" min="0" id="id_meal3" value="{{order.meal3}}">
+          <input type="number" placeholder="Hlavní jídlo 4" class="form-control" name="meal4" min="0" id="id_meal4" value="{{order.meal4}}">
+          <p>{{form.pickup}} S sebou</p>
+          <p>{{form.pickup_time}}</p>
+          <p>{{form.note}}</p>
+          <hr>
+          <input class="btn btn-primary w-100" type="submit" name="Submit" value="Uložit">
+          <hr>
         </form>
     </div>
 </div>

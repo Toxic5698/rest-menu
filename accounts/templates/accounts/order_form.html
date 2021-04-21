@@ -151,11 +151,30 @@
   </div>
 
   <div class="mb-3 row">
-    <label for="inputPickup-time" class="col-sm-4 col-form-label">Čas návštěvy či vyzvednutí pro jídlo s sebou</label>
+    <label for="inputPickup-time" class="col-sm-4 col-form-label">Čas vyzvednutí pro jídlo s sebou</label>
     <div class="col-lg-8">
-      {{form.pickup_time}}
+
+      <select name="pickup_time" class="form-control" id="id_pickup_time">
+        <option value="">*</option>
+
+        <option value="10:30">10:30</option>
+
+        <option value="11:00">11:00</option>
+
+        <option value="11:30">11:30</option>
+
+        <option value="12:00">12:00</option>
+
+        <option value="12:30">12:30</option>
+
+        <option value="13:00">13:00</option>
+
+        <option value="13:30">13:30</option>
+
+      </select>
+      </div>
     </div>
-  </div>
+
 
   <div class="mb-3 row">
     <label for="inputNote" class="col-sm-4 col-form-label">Poznámka</label>
@@ -163,8 +182,7 @@
       <textarea name="note" cols="40" rows="10" maxlength="999" class="form-control" placeholder="Chcete nám něco vzkázat?" id="id_note"></textarea>
     </div>
   </div>
-  <input class="btn btn-warning w-100" type="submit" name="Submit">
-
+  <input class="btn btn-warning w-100" type="submit" name="Submit" value="Objednat!">
 </div>
 </form>
 

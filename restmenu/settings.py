@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'accounts',
-    #'django_filters',
+    'django_filters',
     'django_tables2',
+    'pytest',
 ]
 
 MIDDLEWARE = [

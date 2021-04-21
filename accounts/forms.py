@@ -2,14 +2,11 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+
 from .models import Order, Menu, Supper, Meal, Desert
 
 
 class OrderForm(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(OrderForm, self).__init__(*args, **kwargs)
-        self.fields['pickup_time'].widget.attrs.update({
-        'class': 'form-control',})
 
     class Meta:
         model = Order
@@ -17,6 +14,14 @@ class OrderForm(ModelForm):
 
 
 class MenuForm(ModelForm):
+    supper1 = forms.ModelChoiceField(queryset=Supper.objects.order_by('name'))
+    supper2 = forms.ModelChoiceField(queryset=Supper.objects.order_by('name'))
+    meal1 = forms.ModelChoiceField(queryset=Meal.objects.order_by('name'))
+    meal2 = forms.ModelChoiceField(queryset=Meal.objects.order_by('name'))
+    meal3 = forms.ModelChoiceField(queryset=Meal.objects.order_by('name'))
+    meal4 = forms.ModelChoiceField(queryset=Meal.objects.order_by('name'))
+    desert = forms.ModelChoiceField(queryset=Desert.objects.order_by('name'))
+
     def __init__(self, *args, **kwargs):
         super(MenuForm, self).__init__(*args, **kwargs)
         self.fields['supper1'].widget.attrs.update({

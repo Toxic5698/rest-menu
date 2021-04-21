@@ -5,6 +5,7 @@ from django.contrib import messages
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.db.models import Sum
 
@@ -12,11 +13,15 @@ from django.views.generic import ListView
 
 from django_tables2 import RequestConfig
 
+from django_filters.views import FilterView
+from django_tables2.views import SingleTableMixin
+
 from datetime import date
 
 from .models import *
 from .forms import *
 from .tables import OrderTable
+from .filters import OrderFilter
 
 
 def loginPage(request):
@@ -110,9 +115,9 @@ def editMenu(request, pk):
             formDesert.save()
             messages.success(request, f'Desert přidán!')
 
-    supper = Supper.objects.all()
-    meal = Meal.objects.all()
-    desert = Desert.objects.all()
+    supper = Supper.objects.all().order_by('name')
+    meal = Meal.objects.all().order_by('name')
+    desert = Desert.objects.all().order_by('name')
 
     context = {
     'menu': menu,
@@ -136,7 +141,7 @@ def makeOrder(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Objednávka dokončena!')
-            return redirect('/')
+            #return redirect('/')
 
 
     counting_portions1 = [
@@ -154,37 +159,33 @@ def makeOrder(request):
     return render(request, 'accounts/order_form.html', context)
 
 
-class OrderListView(ListView):
-    model = Order
+class FilteredOrderListView(LoginRequiredMixin, SingleTableMixin, FilterView):
+    login_url = '/login/'
     table_class = OrderTable
-    template_name = 'accounts/order_table.html'
+    model = Order
+    template_name = "accounts/orders.html"
 
+    filterset_class = OrderFilter
 
-@login_required(login_url='login')
-def orders(request):
-    orders = Order.objects.all()
-    menu = Menu.objects.last()
-    total = orders.count()
+    def get_context_data(self, **kwargs):
+        context = super(FilteredOrderListView, self).get_context_data(**kwargs)
 
-    counting_portions1 = [
-    'supper1', 'supper2', 'meal1', 'meal2', 'meal3', 'meal4'
-    ]
-    counting_portions2 = {}
-    for i in counting_portions1:
-        counting = Order.objects.aggregate(Sum(i))
-        counting_portions2.update(counting)
+        counting_portions1 = [
+        'supper1', 'supper2', 'meal1', 'meal2', 'meal3', 'meal4'
+        ]
+        counting_portions2 = {}
+        for i in counting_portions1:
+            counting = Order.objects.aggregate(Sum(i))
+            counting_portions2.update(counting)
 
-    table = OrderTable(Order.objects.all())
-    RequestConfig(request).configure(table)
-
-    context = {
-    'orders': orders,
-    'total': total,
-    'menu': menu,
-    'c_p': counting_portions2,
-    'table': table
-    }
-    return render(request, 'accounts/orders.html', context)
+        context.update(
+            {
+                "menu": Menu.objects.last(),
+                "total": Order.objects.all().count(),
+                "c_p": counting_portions2,
+            }
+        )
+        return context
 
 
 @login_required(login_url='login')
@@ -203,6 +204,7 @@ def editOrder(request, pk):
     context = {
     'menu': menu,
     'form': form,
+    'order': order,
     }
     return render(request, 'accounts/edit_order.html', context)
 
@@ -213,6 +215,7 @@ def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
     if request.method == 'POST':
         order.delete()
+        messages.success(request, f'Objednávka smazána!')
         return redirect('/orders/')
 
     context = {'item': order, 'menu': menu}
@@ -224,6 +227,7 @@ def deleteOrders(request):
     orders = Order.objects.all()
     if request.method == 'POST':
         orders.delete()
+        messages.success(request, f'Všechny objednávky smazány!')
         return redirect('/orders/')
 
     context = {'orders': orders, 'menu': menu}
