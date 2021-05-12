@@ -3,14 +3,10 @@ from . import views
 from .views import FilteredOrderListView
 
 
-
-
 urlpatterns = [
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
     path('', views.home, name='home'),
-
-
     path('edit_menu/<str:pk>/', views.editMenu, name='edit_menu'),
     path('make_order/', views.makeOrder, name='make_order'),
     path('orders/', FilteredOrderListView.as_view(), name='orders'),
